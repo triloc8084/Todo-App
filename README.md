@@ -1,75 +1,53 @@
-# TaskMaster - To-Do List Application
+# TaskMaster Todo App
 
-A modern to-do list application with task prioritization and deadline management features.
+A modern, feature-rich todo application with task management and analytics capabilities.
 
 ## Features
 
-- Add, edit, and delete tasks
-- Set task priorities (low, medium, high)
-- Set task deadlines
-- Filter tasks by priority
-- Mark tasks as complete
+- User authentication (Register/Login)
+- Task management with priorities
+- Due date tracking
+- Task filtering and sorting
+- Task completion tracking
+- Analytics dashboard
 - Responsive design
-- Local storage support
-- RESTful API backend
+- Real-time task updates
 
 ## Technologies Used
 
-- Frontend: HTML5, CSS3, JavaScript
+- Frontend: HTML, CSS, JavaScript
 - Backend: PHP
 - Database: MySQL
+- Charts: Chart.js
 - Icons: Font Awesome
 
 ## Setup Instructions
 
-1. **Database Setup**
-   - Create a MySQL database
-   - Import the `database.sql` file
-   - Update database credentials in `api/config.php`
+1. Clone the repository
+2. Import `database.sql` to your MySQL server
+3. Configure database connection in `config.php`
+4. Place the files in your web server directory
+5. Access the application through your web browser
 
-2. **Web Server Setup**
-   - Place all files in your web server directory
-   - Ensure PHP and MySQL are installed and running
-   - Make sure the web server has write permissions for the database
+## Database Configuration
 
-3. **Configuration**
-   - Update the database connection details in `api/config.php`:
-     ```php
-     define('DB_SERVER', 'localhost');
-     define('DB_USERNAME', 'your_username');
-     define('DB_PASSWORD', 'your_password');
-     define('DB_NAME', 'todo_app');
-     ```
+Create a `config.php` file in the `api` directory with the following content:
 
-4. **Access the Application**
-   - Open `index.html` in your web browser
-   - The application should be ready to use
+```php
+<?php
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'your_username');
+define('DB_PASSWORD', 'your_password');
+define('DB_NAME', 'todo_app_main');
 
-## API Endpoints
+$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-- `GET /api/tasks.php` - Get all tasks
-- `POST /api/tasks.php` - Create a new task
-- `PUT /api/tasks.php` - Update a task
-- `DELETE /api/tasks.php?id={id}` - Delete a task
-
-## Project Structure
-
+if($conn === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+?>
 ```
-├── index.html
-├── css/
-│   └── style.css
-├── js/
-│   └── script.js
-├── api/
-│   ├── config.php
-│   └── tasks.php
-└── database.sql
-```
-
-## Contributing
-
-Feel free to submit issues and enhancement requests.
 
 ## License
 
-This project is licensed under the MIT License. 
+MIT License 
